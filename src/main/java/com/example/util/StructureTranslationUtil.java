@@ -72,21 +72,6 @@ public class StructureTranslationUtil {
         return writeToFile(csv.toString(), "csv");
     }
 
-    //    public static String exportStructureTranslationsToLang(ServerWorld world) throws IOException {
-//        List<StructureData> structures = collectStructureData(world);
-//        StringBuilder lang = new StringBuilder();
-//        lang.append("# Structure translations exported at: ")
-//                .append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()))
-//                .append("\n");
-//        lang.append("# Total structures: ").append(structures.size()).append("\n\n");
-//
-//        for (StructureData data : structures) {
-//            lang.append("# ").append(data.id.toString()).append("\n");
-//            lang.append(data.translationKey).append("=").append(data.translatedName).append("\n\n");
-//        }
-//
-//        return writeToFile(lang.toString(), "lang");
-//    }
     public static String exportStructureTranslationsToLang(ServerWorld world) throws IOException {
         List<StructureData> structures = collectStructureData(world);
         JsonObject root = new JsonObject();
@@ -172,7 +157,7 @@ public class StructureTranslationUtil {
                 extension);
 
         Path gameDir = Paths.get(".");
-        Path exportDir = gameDir.resolve("exported_structures");
+        Path exportDir = gameDir.resolve("exported_trans");
 
         if (!Files.exists(exportDir)) {
             Files.createDirectories(exportDir);
